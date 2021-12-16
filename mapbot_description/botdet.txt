@@ -1,0 +1,2 @@
+wheel seperation: 85mm
+wheel diameter: 45mm

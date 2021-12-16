@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="mapbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mapbot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mapbot_description)/urdf/mapbot.trans" />
+<xacro:include filename="$(find mapbot_description)/urdf/mapbot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.002470997046653882 -1.4903277784204395e-17 0.024147337367533068"/>
+    <mass value="1.197644825570603"/>
+    <inertia ixx="0.00053" ixy="0.0" ixz="5.4e-05" iyy="0.001078" iyz="-0.0" izz="0.001456"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="3.469446951953614e-17 -0.0075 -4.0866499042419013e-08"/>
+    <mass value="0.1872732833236003"/>
+    <inertia ixx="2.7e-05" ixy="-0.0" ixz="-0.0" iyy="4.7e-05" iyz="-0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.03 0.035 -0.022386"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.03 0.035 -0.022386"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="3.469446951953614e-17 0.007499999999999972 -4.0866499052827354e-08"/>
+    <mass value="0.1872732833236003"/>
+    <inertia ixx="2.7e-05" ixy="0.0" ixz="0.0" iyy="4.7e-05" iyz="-0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.03 -0.035 -0.022386"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.03 -0.035 -0.022386"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-6.938893903907228e-18 0.0 0.0025000000000000022"/>
+    <mass value="0.024661502330679867"/>
+    <inertia ixx="1e-06" ixy="0.0" ixz="-0.0" iyy="1e-06" iyz="0.0" izz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.03 -0.0 -0.0525"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.03 -0.0 -0.0525"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-7.239209232068333e-13 -6.524214731207409e-19 -0.005480769230769271"/>
+    <mass value="0.0066791568812256"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.035 -0.0 -0.0125"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.035 -0.0 -0.0125"/>
+    <geometry>
+      <mesh filename="package://mapbot_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev5" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.03 -0.035 0.022386"/>
+  <parent link="base_link"/>
+  <child link="right_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev6" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.03 0.035 0.022386"/>
+  <parent link="base_link"/>
+  <child link="left_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<!--<joint name="Rev7" type="continuous"> -->
+<joint name="Rigid7" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.03 0.0 0.0525"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid8" type="fixed">
+  <origin rpy="0 0 0" xyz="0.035 0.0 0.0125"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+</joint>
+
+</robot>
