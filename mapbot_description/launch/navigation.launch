@@ -3,7 +3,7 @@
 <launch>
   <!-- Arguments -->
  
-  <arg name="map_file" default="$(find mapbot_description)/map/map.yaml"/>  
+  <arg name="map_file" default="$(find mapbot_description)/map/map2.yaml"/>  
   <arg name="move_forward_only" default="true"/>
 
   <!-- Map server -->
@@ -23,7 +23,7 @@
     type="rviz" 
     name="rviz" 
     args="-d $(find mapbot_description)/rviz/navi.rviz"
-    required="true"    
+    required="false"    
     
     />  
 </launch>

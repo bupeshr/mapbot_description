@@ -4,7 +4,7 @@
   <param command="$(find xacro)/xacro $(find mapbot_description)/urdf/mapbot.xacro" name="robot_description"/>
   <node args="-param robot_description -urdf -model mapbot" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name"  value="$(find mapbot_description)/world/mapthis.world"/>
+    <arg name="world_name"  value="$(find mapbot_description)/world/mapthis2.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
