@@ -32,4 +32,4 @@ if __name__ == '__main__' :
         if result:
             rospy.loginfo("goal execution done!!")
     except rospy.ROSInterruptException:
-        rospy.loginfo("done ehhhhhhh")
+        rospy.loginfo("done ehhhhhh")
